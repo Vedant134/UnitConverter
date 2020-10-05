@@ -1,0 +1,86 @@
+*Vedant Panjabi
+ * 10-5-20
+ * 
+ * UnitConverter.java
+ * 
+ * Takes the unit inches and converts into many other units that are 
+ equivalent to inches
+ 
+ 
+ * Psecudocode= plan
+ * D&I and field variable inches as we can use it in several methods
+ * D&I the feet, inches, cm variables in main method 
+ * Asks the user for the measurement in inches (Reads in)
+ * Create the method InchestoFeet() which converts inches to feet and 
+ returns the value to the method which was greated at top (no parameters!)
+ * Creates the method InchestoCm () which converts inches to cm and 
+ returns the value to the exisiting method (also no parameters because 
+ of field variable)
+ * Creates the method FeetToInches() and then converts it to inches, and returns the value
+as feet to the method, and takes in parameter feet
+* Print method- for printing out all the conversions from the original unit
+inches, taking in parameters with different names (reperesnting same idea)
+ * 
+ * 
+ */
+
+
+public class UnitConverter 
+{
+
+public static double inches=-1.0;
+
+public static void main(String[] args)
+{
+	double feet=0.0;
+	double yards=0.0;
+	double cm=0.0;
+	
+	UserInput();
+	feet=InchestoFeet();
+	cm=InchestoCm();
+	yards=FeetToYards(feet);
+	print(feet,cm,yards);
+	
+	
+}
+
+public static void UserInput() {
+	Scanner keyboard= new Scanner(System.in);
+	
+	System.out.println("Enter in the number of inches.");
+	inches= keyboard.nextInt();
+}
+
+public static double InchestoFeet() {
+	double convertedFeet=0.0;
+	convertedFeet=inches/12;
+	return convertedFeet;
+}
+public static double InchestoCm()
+{
+	double ConvertedCm=0.0;
+	final double  MULTIPLIER_CONVERTER=2.54;
+	
+	ConvertedCm= inches*MULTIPLIER_CONVERTER;
+	return ConvertedCm;
+}
+
+public static double FeetToYards(double GetFeet) 
+{
+    double ConvertedYards= 0.0;
+	final double  MULTIPLIER_CONVERTER=0.333;
+	
+	ConvertedYards= GetFeet* MULTIPLIER_CONVERTER;
+	
+	return ConvertedYards;
+}
+
+public static void print(double ShowFeet, double ShowCm, double ShowYards) 
+{
+System.out.println("\n\n\n");
+System.out.printf("%.2f in inches is equivalent to %.2f in feet\n", inches, ShowFeet);
+System.out.printf("%.2f in inches is equivalent to %.2f in cm\n", inches, ShowCm);
+System.out.printf("%.2f in feet is equivalent to %.2f in yards", ShowFeet, ShowYards);
+  }
+}
